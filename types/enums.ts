@@ -25,3 +25,7 @@ export enum EnumRating {
     PLATINUM = 'PLATINUM',
     DIAMOND = 'DIAMOND'
 }
+
+export enum EnumToken {
+    ACCESS_TOKEN = 'accessToken'
+}
