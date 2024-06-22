@@ -1,11 +1,11 @@
 import { axiosDefault } from '@/api/axios';
-import { IAuthResponse, TAuthFormLogin } from '@/types/auth.type';
+import { IAuthForm, IAuthResponse } from '@/types/auth.type';
 import { TokenService } from './token.service';
 
 export class AuthService {
-    static async login(data: TAuthFormLogin) {
+    static async auth(type: 'sign-in' | 'sign-up', data: IAuthForm) {
         const response = await axiosDefault.post<IAuthResponse>(
-            '/auth/sign-in',
+            `/auth/${type}`,
             data
         );
         if (response.data.accessToken) {
