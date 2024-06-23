@@ -7,7 +7,7 @@ import { FaStar } from 'react-icons/fa';
 
 export function AdminMovieCard() {
     return (
-        <div className="p-5 border-gray border-2 rounded-sm">
+        <div className="p-5 border-gray border-2 rounded-sm shadow-md">
             <div className="flex items-start gap-6">
                 <Image
                     height={'400'}
@@ -19,7 +19,9 @@ export function AdminMovieCard() {
                     alt="avatar"
                 />
                 <div className="flex flex-col items-baseline gap-2 justify-between">
-                    <h1 className="text-lg font-bold text-black">Форест Гамп</h1>
+                    <h1 className="text-lg font-bold text-black">
+                        Форест Гамп
+                    </h1>
                     <p className="text-sm ">Комедия/Романтика </p>
                     <Link
                         className='my-5"'

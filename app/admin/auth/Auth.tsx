@@ -32,7 +32,7 @@ export function Auth() {
         onSuccess: () => {
             toast.success('Successfully login!');
             form.reset();
-            push(DASHBOARD_PAGES.HOME);
+            push(DASHBOARD_PAGES.ADMIN_HOME);
         }
     });
 
@@ -45,7 +45,6 @@ export function Auth() {
             <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 className="text-lg text-center">
-                        {' '}
                         {isLogin ? 'Login' : 'Register'}
                     </h1>
                     <Form {...form}>
@@ -56,14 +55,14 @@ export function Auth() {
                             {!isLogin && (
                                 <FormField
                                     control={form.control}
-                                    name="username"
+                                    name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Username</FormLabel>
+                                            <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg "
-                                                    placeholder="Username"
+                                                    placeholder="Email"
                                                     {...field}
                                                 />
                                             </FormControl>
@@ -73,14 +72,14 @@ export function Auth() {
                             )}
                             <FormField
                                 control={form.control}
-                                name="email"
+                                name="username"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Email</FormLabel>
+                                        <FormLabel>Username</FormLabel>
                                         <FormControl>
                                             <Input
                                                 className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg "
-                                                placeholder="Email"
+                                                placeholder="Username"
                                                 {...field}
                                             />
                                         </FormControl>
@@ -117,7 +116,7 @@ export function Auth() {
                             >
                                 Don’t have an account yet?
                                 <span className="cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500">
-                                    {isLogin ? ' Login' : ' Register'}
+                                    {isLogin ? ' Register' : ' Login'}
                                 </span>
                             </p>
                         </form>

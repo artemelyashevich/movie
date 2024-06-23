@@ -34,10 +34,5 @@ export const adminUserLinks: IAdminLink[] = [
         title: 'Profile',
         value: '/profile',
         icon: <FaUserAlt className={basicClassName} />
-    },
-    {
-        title: 'Logout',
-        value: 'admin/logout',
-        icon: <IoLogOutSharp className={basicClassName} />
     }
 ];

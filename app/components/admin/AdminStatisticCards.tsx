@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { adminCards } from '@/lib/admin-cards';
@@ -9,7 +9,7 @@ export function AdminStatisticCards() {
     return (
         <div className="flex justify-center items-center gap-2 my-4">
             {adminCards.map((item: IAdminCard, index: number) => (
-                <Card key={index} className="w-1/4 p-5">
+                <Card key={index} className="w-1/4 p-5 shadow-md">
                     <CardTitle className="text-sm flex items-center justify-between">
                         {item.icon}
                         <p className="text-lg">{item.title}</p>

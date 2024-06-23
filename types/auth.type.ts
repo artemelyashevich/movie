@@ -5,5 +5,5 @@ export interface IAuthForm {
 }
 
 export interface IAuthResponse {
-    accessToken: string;
+    token: string;
 }
