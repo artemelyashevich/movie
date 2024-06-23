@@ -105,7 +105,8 @@ export function Auth() {
                                 )}
                             />
                             <Button
-                                className="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                className="w-full font-medium"
+                                variant={'blue'}
                                 type="submit"
                             >
                                 {isLogin ? 'Login' : 'Register'}
