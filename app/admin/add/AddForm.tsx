@@ -17,8 +17,6 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
 import { EnumQuality, EnumSize, EnumStatus } from '@/types/enums';
 
 export function AddForm() {
@@ -179,7 +177,7 @@ export function AddForm() {
                     )}
                 />
                 <Button
-                    className="w-full font-medium"
+                    className="w-full m-auto font-medium"
                     variant={'blue'}
                     type="submit"
                 >

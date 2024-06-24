@@ -6,7 +6,7 @@ import {
     BiSolidLockOpenAlt
 } from 'react-icons/bi';
 
-const basicClassName = 'text-lg cursor-pointer';
+const basicClassName = 'text-lg cursor-pointer hover:scale-[1.1]';
 
 export const adminCards: IAdminCard[] = [
     {

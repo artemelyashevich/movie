@@ -2,7 +2,7 @@ import { ICategory, IGenre } from './category.type';
 import { EnumQuality, EnumRating, EnumSize, EnumStatus } from './enums';
 
 export interface IMovie {
-    _id: string;
+    id: string;
     title: string;
     description: string;
     rating: EnumRating;

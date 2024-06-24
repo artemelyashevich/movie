@@ -19,7 +19,7 @@ export function AdminLeftBar() {
         mutationFn: () => AuthService.logout(),
         onSuccess: () => {
             toast.success('Successfully logout!');
-            push(DASHBOARD_PAGES.ADMIN_HOME);
+            push(DASHBOARD_PAGES.ADMIN_AUTH);
         }
     });
 

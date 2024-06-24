@@ -9,6 +9,6 @@ export interface IAdminLink {
 export interface IAdminCard {
     title: string;
     icon: ReactElement;
-    value?: number;
+    value?: number | string;
 }
 

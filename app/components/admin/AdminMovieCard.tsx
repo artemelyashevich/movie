@@ -1,11 +1,13 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { ICategory } from '@/types/category.type';
+import { IMovie } from '@/types/movie.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
 
-export function AdminMovieCard() {
+export function AdminMovieCard({ movie }: { movie?: IMovie }) {  
     return (
         <div className="p-5 border-gray border-2 rounded-sm shadow-md">
             <div className="flex items-start gap-6">
@@ -13,28 +15,36 @@ export function AdminMovieCard() {
                     height={'400'}
                     width={'400'}
                     className="object-center max-w-40 rounded-sm"
-                    src={
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGGC-DWPIn_XXfY9Tf6Yd6Xz5-teUn7HZagg&s'
-                    }
+                    src={movie?.bannerImgUrl || ''}
                     alt="avatar"
                 />
                 <div className="flex flex-col items-baseline gap-2 justify-between">
                     <h1 className="text-lg font-bold text-black">
-                        Форест Гамп
+                        {movie?.title}
                     </h1>
-                    <p className="text-sm ">Комедия/Романтика </p>
-                    <Link
-                        className='my-5"'
-                        href="https://www.youtube.com/watch?v=ya_zgmvhKuM"
-                    >
-                        https://www.youtube.com/watch?v=ya_zgmvhKuM
+                    <p className="text-sm flex gap-1">
+                        {movie?.categories.map(
+                            (category: ICategory, index: number) => (
+                                <span key={index}>{category.title}</span>
+                            )
+                        )}
+                    </p>
+                    <Link className='my-5"' href={movie?.watchLink || ''}>
+                        {movie?.watchLink}
                     </Link>
                     <p className="flex items-center justify-start gap-2">
-                        <FaStar /> <span>5</span>
+                        <FaStar /> <span>{movie?.rating}</span>
                     </p>
                     <div className="flex gap-10 mt-10">
-                        <Button variant={'blue'}>Update movie</Button>
-                        <Button>Delete movie</Button>
+                        <Link href={`/admin/movie/${movie?.id}/update`}>
+                            <Button variant={'blue'}>Update movie</Button>
+                        </Link>
+                        <Button
+                            variant={'secondary'}
+                            className="border-2 hover:bg-red-500 hover:text-white"
+                        >
+                            Delete movie
+                        </Button>
                     </div>
                 </div>
             </div>

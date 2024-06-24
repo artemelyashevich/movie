@@ -10,12 +10,12 @@ import { Check } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { AdminStatisticCards } from '@/app/components/admin/AdminStatisticCards';
 import Link from 'next/link';
-import { AdminMovieCard } from '@/app/components/admin/AdminMovieCard';
+import { AdminMoviesRender } from '@/app/components/admin/AdminMoviesRender';
 
 export default function AdminHome() {
     return (
         <div>
-            <Card className="border-none bg-blue-500 text-white">
+            <Card className="border-none bg-blue-500 text-white shadow-lg">
                 <div className="p-4 border-2 border-gray-200 rounded-lg">
                     <CardHeader>
                         <CardTitle>Explore all type of movies here</CardTitle>
@@ -51,7 +51,10 @@ export default function AdminHome() {
                 </Link>
             </div>
             <div className="my-4 flex flex-col justify-center text-center">
-                <AdminMovieCard />
+                <AdminMoviesRender />
+                <Link className="my-4" href={'/admin/movie'}>
+                    <Button variant={'blue'}>Load more</Button>
+                </Link>
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import { AdminMovieCard } from '@/app/components/admin/AdminMovieCard';
+import { AdminMoviesRender } from '@/app/components/admin/AdminMoviesRender';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@radix-ui/react-separator';
 import Link from 'next/link';
@@ -14,11 +14,9 @@ export default function Draft() {
                     <Button variant={'blue'}>Add movie</Button>
                 </Link>
             </div>
-            <Separator className="w-1/4 h-1" />
+            <Separator className="w-1/4 h-1 bg-blue-500 mb-4"/>
             <div className="my-4 flex flex-col justify-center text-center gap-3">
-                <AdminMovieCard />
-                <AdminMovieCard />
-                <AdminMovieCard />
+                <AdminMoviesRender />
             </div>
         </div>
     );

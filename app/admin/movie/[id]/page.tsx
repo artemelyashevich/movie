@@ -1,5 +1,3 @@
-export default function AdminMovie() {
-    return (
-        <div></div>
-    )
+export default function AdminMovie({ params }: { params: { id: string } }) {
+    return <div></div>;
 }
