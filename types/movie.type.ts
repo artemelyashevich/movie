@@ -22,4 +22,4 @@ export interface IMovie {
     updatedAt: string;
 }
 
-export type TMovieFormState = Omit<IMovie, '_id' | 'createdAt' | 'updatedAt'>;
+export type TMovieFormState = Omit<IMovie, 'id' | 'createdAt' | 'updatedAt'>;

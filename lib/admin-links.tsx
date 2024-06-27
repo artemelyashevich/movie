@@ -14,7 +14,7 @@ export const adminLinks: IAdminLink[] = [
     },
     {
         title: 'Movies',
-        value: '/movie',
+        value: '/movies',
         icon: <IoCameraSharp className={basicClassName} />
     },
     {

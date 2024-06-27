@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -11,8 +13,11 @@ import { Separator } from '@/components/ui/separator';
 import { AdminStatisticCards } from '@/app/components/admin/AdminStatisticCards';
 import Link from 'next/link';
 import { AdminMoviesRender } from '@/app/components/admin/AdminMoviesRender';
+import { useMovies } from '@/hooks/useMovies';
 
 export default function AdminHome() {
+    const { data, isLoading } = useMovies();
+
     return (
         <div>
             <Card className="border-none bg-blue-500 text-white shadow-lg">
@@ -51,7 +56,7 @@ export default function AdminHome() {
                 </Link>
             </div>
             <div className="my-4 flex flex-col justify-center text-center">
-                <AdminMoviesRender />
+                <AdminMoviesRender data={data} isLoading={isLoading} />
                 <Link className="my-4" href={'/admin/movie'}>
                     <Button variant={'blue'}>Load more</Button>
                 </Link>

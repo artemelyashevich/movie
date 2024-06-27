@@ -9,3 +9,4 @@ export function useGenres() {
     });
     return { data, isError, isLoading };
 }
+

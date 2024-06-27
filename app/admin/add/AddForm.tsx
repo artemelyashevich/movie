@@ -8,7 +8,7 @@ import {
     FormItem,
     FormLabel
 } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormFieldComponent } from '@/app/components/admin/FormFieldComponent';
 import {
     SelectContent,
@@ -18,13 +18,26 @@ import {
     SelectValue
 } from '@/components/ui/select';
 import { EnumQuality, EnumSize, EnumStatus } from '@/types/enums';
+import { useMutation } from '@tanstack/react-query';
+import { MovieService } from '@/service/movie.service';
+import { TMovieFormState } from '@/types/movie.type';
 
 export function AddForm() {
     const form = useForm();
+    const { mutate } = useMutation({
+        mutationFn: (data: TMovieFormState) => MovieService.create(data),
+        mutationKey: ['movieCreate']
+    });
+    const onSubmit: SubmitHandler<TMovieFormState> = (data) => {
+        mutate(data)
+    };
 
     return (
         <Form {...form}>
-            <form className="space-y-4 md:space-y-6 w-4/5 grid gap-8 grid-cols-2">
+            <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-4 md:space-y-6 w-4/5 grid gap-8 grid-cols-2"
+            >
                 <FormFieldComponent form={form} name="title" title="Title" />
                 <FormFieldComponent
                     form={form}

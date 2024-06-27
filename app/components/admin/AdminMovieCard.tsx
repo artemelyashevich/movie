@@ -36,7 +36,7 @@ export function AdminMovieCard({ movie }: { movie?: IMovie }) {
                         <FaStar /> <span>{movie?.rating}</span>
                     </p>
                     <div className="flex gap-10 mt-10">
-                        <Link href={`/admin/movie/${movie?.id}/update`}>
+                        <Link href={`/admin/movie/${movie?.id}`}>
                             <Button variant={'blue'}>Update movie</Button>
                         </Link>
                         <Button
