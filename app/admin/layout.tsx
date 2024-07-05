@@ -8,15 +8,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body>
-                <AdminLeftBar />
-                <div className="p-4 sm:ml-64">
-                    <AdminHeader />
-                    {children}
-                    <AdminFooter />
-                </div>
-            </body>
-        </html>
+        <div>
+            <AdminLeftBar />
+            <div className="p-4 sm:ml-64">
+                <AdminHeader />
+                {children}
+                <AdminFooter />
+            </div>
+        </div>
     );
 }

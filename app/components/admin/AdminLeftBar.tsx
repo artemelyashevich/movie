@@ -10,9 +10,11 @@ import { useMutation } from '@tanstack/react-query';
 import { AuthService } from '@/service/auth.service';
 import { toast } from 'sonner';
 import { DASHBOARD_PAGES } from '@/config/pages-url.config';
+import { usePathname } from 'next/navigation';
 
 export function AdminLeftBar() {
     const { push } = useRouter();
+    const pathname = usePathname();
 
     const { mutate } = useMutation({
         mutationKey: ['auth'],
@@ -31,7 +33,10 @@ export function AdminLeftBar() {
                         <li key={index}>
                             <Link
                                 href={`/admin${link.value}`}
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 group"
+                                className={`${
+                                    pathname.includes(link.value) &&
+                                    'bg-blue-100'
+                                } flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 group`}
                             >
                                 {link.icon}
                                 <span className="ms-3">{link.title}</span>
@@ -39,13 +44,16 @@ export function AdminLeftBar() {
                         </li>
                     ))}
                     <div className="flex h-5 items-center space-x-4 text-lg">
-                        <Separator />
+                        <Separator className='h-[2px]'/>
                     </div>
                     {adminUserLinks.map((link: IAdminLink, index: number) => (
                         <li key={index}>
                             <Link
                                 href={`/admin${link.value}`}
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 group"
+                                className={`${
+                                    pathname.includes(link.value) &&
+                                    'bg-blue-100'
+                                } flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 group`}
                             >
                                 {link.icon}
                                 <span className="ms-3">{link.title}</span>

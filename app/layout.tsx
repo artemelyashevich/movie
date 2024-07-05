@@ -18,13 +18,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={inter.className} suppressHydrationWarning={true}>
                 <Providers>
                     {children}
-                    <Toaster
-                        position="bottom-right"
-                        duration={1500}
-                    />
+                    <Toaster position="bottom-right" duration={1500} />
                 </Providers>
             </body>
         </html>

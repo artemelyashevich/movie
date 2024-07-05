@@ -10,12 +10,14 @@ export function FormFieldComponent({
     form,
     title,
     name,
-    type
+    type,
+    value
 }: {
     form: any;
     title: string;
     name: string;
     type?: string;
+    value?: string;
 }) {
     return (
         <FormField
@@ -29,6 +31,7 @@ export function FormFieldComponent({
                             className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg "
                             placeholder={title}
                             type={type ?? 'text'}
+                            defaultValue={value ?? ''}
                             {...field}
                         />
                     </FormControl>

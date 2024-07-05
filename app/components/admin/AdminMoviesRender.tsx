@@ -2,6 +2,7 @@
 
 import { IMovie } from '@/types/movie.type';
 import { AdminMovieCard } from './AdminMovieCard';
+import { AdminMovieCardSkeleton } from './AdminMovieCardSkeleton';
 
 export function AdminMoviesRender({
     data,
@@ -13,7 +14,7 @@ export function AdminMoviesRender({
     return (
         <>
             {isLoading ? (
-                <>Loading...</>
+                <AdminMovieCardSkeleton />
             ) : (
                 data &&
                 data.length &&

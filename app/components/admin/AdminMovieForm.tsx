@@ -20,16 +20,27 @@ import {
 import { EnumQuality, EnumSize, EnumStatus } from '@/types/enums';
 import { useMutation } from '@tanstack/react-query';
 import { MovieService } from '@/service/movie.service';
-import { TMovieFormState } from '@/types/movie.type';
+import { IMovie, TMovieFormState } from '@/types/movie.type';
 
-export function AddForm() {
+export function AdminMovieForm({
+    isCreate,
+    movie
+}: {
+    isCreate: boolean;
+    movie?: IMovie;
+}) {
     const form = useForm();
-    const { mutate } = useMutation({
+    const { mutate: create } = useMutation({
         mutationFn: (data: TMovieFormState) => MovieService.create(data),
         mutationKey: ['movieCreate']
     });
-    const onSubmit: SubmitHandler<TMovieFormState> = (data) => {
-        mutate(data)
+    const { mutate: update } = useMutation({
+        mutationFn: (data: TMovieFormState) =>
+            MovieService.update(String(movie?.id), data),
+        mutationKey: ['movieUpdate']
+    });
+    const onSubmit: SubmitHandler<TMovieFormState> = data => {
+        isCreate ? create(data) : update(data);
     };
 
     return (
@@ -38,29 +49,38 @@ export function AddForm() {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="space-y-4 md:space-y-6 w-4/5 grid gap-8 grid-cols-2"
             >
-                <FormFieldComponent form={form} name="title" title="Title" />
+                <FormFieldComponent
+                    form={form}
+                    value={movie?.title}
+                    name="title"
+                    title="Title"
+                />
                 <FormFieldComponent
                     form={form}
                     name="description"
                     title="Description"
+                    value={movie?.description}
                 />
                 <FormFieldComponent
                     form={form}
                     name="rating"
                     title="Rating"
                     type="number"
+                    value={movie?.rating}
                 />
                 <FormFieldComponent
                     form={form}
                     name="duration"
                     title="Duration"
                     type="number"
+                    value={movie?.duration}
                 />
                 <FormFieldComponent
                     form={form}
                     name="watchLink"
                     title="Watch Link"
                     type="url"
+                    value={movie?.watchLink}
                 />
 
                 <FormFieldComponent
@@ -68,26 +88,35 @@ export function AddForm() {
                     name="releaseYear"
                     title="Release Year"
                     type="number"
+                    value={String(movie?.releaseYear || '')}
                 />
                 <FormFieldComponent
                     form={form}
                     name="subtitle"
                     title="SubTitle"
+                    value={movie?.subtitle}
                 />
                 <FormFieldComponent
                     form={form}
                     name="bannerImgUrl"
                     title="Banner Image Url"
                     type="url"
+                    value={movie?.bannerImgUrl}
                 />
                 <FormFieldComponent
                     form={form}
                     name="imgUrl"
                     title="Image Url"
                     type="url"
+                    value={movie?.imgUrl}
                 />
 
-                <FormFieldComponent form={form} name="genres" title="Genres" />
+                <FormFieldComponent
+                    form={form}
+                    value={movie?.genres}
+                    name="genres"
+                    title="Genres"
+                />
                 <FormFieldComponent
                     form={form}
                     name="categories"
