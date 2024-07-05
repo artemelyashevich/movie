@@ -2,7 +2,7 @@ import { axiosWithToken } from '@/api/axios';
 import { IMovie, TMovieFormState } from '@/types/movie.type';
 
 export class MovieService {
-    private static URL: string = '/movies';
+    private static readonly URL: string = '/movies';
 
     public static async getAllMovies(
         categoryName: string = '',

@@ -12,7 +12,7 @@ export function AdminStatisticCards() {
     const { data: genres, isLoading: isGenresLoading } = useGenres();
     const { data: categories, isLoading: isCategoriesLoading } =
         useCategories();
-    adminCards[0].value = localStorage.getItem('MOVIES_LENGTH') as string;
+    adminCards[0].value =  JSON.parse(localStorage.getItem('MOVIES_LENGTH') || '0') as string;
     adminCards[1].value = categories?.length;
     adminCards[2].value = genres?.length;
     // TODO: implements movies with 'DRAFT' status

@@ -22,7 +22,6 @@ export default function RootLayout({
                 <Providers>
                     {children}
                     <Toaster
-                        theme="dark"
                         position="bottom-right"
                         duration={1500}
                     />
