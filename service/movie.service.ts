@@ -1,4 +1,4 @@
-import { axiosWithToken } from '@/api/axios';
+import { axiosDefault, axiosWithToken } from '@/api/axios';
 import { IMovie, TMovieFormState } from '@/types/movie.type';
 
 export class MovieService {
@@ -9,10 +9,20 @@ export class MovieService {
         genreName: string = '',
         statusName: string = ''
     ) {
-        const response = await axiosWithToken.get(
+        const response = await axiosDefault.get(
             `${this.URL}?categoryName=${categoryName}&genreName=${genreName}&statusName=${statusName}`
         );
         return response.data;
+    }
+
+    public static async getAllPaginated(
+        page: number = 1,
+        size: number = 1
+    ): Promise<IMovie> {
+        const response = await axiosDefault.get(
+            `${this.URL}/paginated?page=${page}&size=${size}`
+        );
+        return response.data.content;
     }
 
     public static async create(data: TMovieFormState): Promise<IMovie> {

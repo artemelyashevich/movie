@@ -16,7 +16,7 @@ import { AdminMoviesRender } from '@/app/components/admin/AdminMoviesRender';
 import { useMovies } from '@/hooks/useMovies';
 
 export default function AdminHome() {
-    const { data, isLoading } = useMovies();
+    const { data, isLoading } = useMovies({});
 
     return (
         <div>
@@ -57,7 +57,7 @@ export default function AdminHome() {
             </div>
             <div className="my-4 flex flex-col justify-center text-center">
                 <AdminMoviesRender data={data} isLoading={isLoading} />
-                <Link className="my-4" href={'/admin/movie'}>
+                <Link className="my-4" href={'/admin/movies'}>
                     <Button variant={'blue'}>Load more</Button>
                 </Link>
             </div>

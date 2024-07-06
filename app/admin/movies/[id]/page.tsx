@@ -19,7 +19,7 @@ export default function AdminMoviePage({ params }: { params: { id: string } }) {
             ) : (
                 <>
                     <h1 className="text-2xl mb-1 font-bold">
-                        Edit movie:{' '}
+                        Edit movie:
                         <span className="text-blue-700">{data?.title}</span>
                     </h1>
                     <Separator className="w-1/4 h-1 bg-blue-500 mb-10" />
@@ -30,8 +30,8 @@ export default function AdminMoviePage({ params }: { params: { id: string } }) {
                                     src={data?.bannerImgUrl || 'https://www.'}
                                     className="w-full rounded-t-xl"
                                     alt="default banner"
-                                    width={500}
-                                    height={100}
+                                    width={1000}
+                                    height={1000}
                                 />
                                 <h2 className="mt-2 font-bold">
                                     Background image preview

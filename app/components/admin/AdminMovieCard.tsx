@@ -15,7 +15,7 @@ export function AdminMovieCard({ movie }: { movie?: IMovie }) {
                     height={'400'}
                     width={'400'}
                     className="object-center max-w-40 rounded-sm"
-                    src={movie?.bannerImgUrl || ''}
+                    src={movie?.imgUrl || ''}
                     alt="avatar"
                 />
                 <div className="flex flex-col items-baseline gap-2 justify-between">

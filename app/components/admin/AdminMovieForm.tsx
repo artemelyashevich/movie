@@ -39,7 +39,9 @@ export function AdminMovieForm({
             MovieService.update(String(movie?.id), data),
         mutationKey: ['movieUpdate']
     });
-    const onSubmit: SubmitHandler<TMovieFormState> = data => {
+    const onSubmit: SubmitHandler<TMovieFormState> = (
+        data: TMovieFormState
+    ) => {
         isCreate ? create(data) : update(data);
     };
 
@@ -113,7 +115,7 @@ export function AdminMovieForm({
 
                 <FormFieldComponent
                     form={form}
-                    value={movie?.genres}
+                    value={String(movie?.genres.join(' , '))}
                     name="genres"
                     title="Genres"
                 />
