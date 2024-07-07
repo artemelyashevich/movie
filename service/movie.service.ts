@@ -29,7 +29,12 @@ export class MovieService {
     }
 
     public static async create(data: TMovieFormState): Promise<IMovie> {
-        const response = await axiosWithToken.post(this.URL, data);
+        const response = await axiosWithToken.post(this.URL, {
+            ...data,
+            genres: ['Action'],
+            categories: ['Movies'],
+            languages: ['English']
+        });
         return response.data;
     }
 

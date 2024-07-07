@@ -17,7 +17,7 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
-import { EnumQuality, EnumSize, EnumStatus } from '@/types/enums';
+import { EnumQuality, EnumRating, EnumSize, EnumStatus } from '@/types/enums';
 import { useMutation } from '@tanstack/react-query';
 import { MovieService } from '@/service/movie.service';
 import { IMovie, TMovieFormState } from '@/types/movie.type';
@@ -63,12 +63,41 @@ export function AdminMovieForm({
                     title="Description"
                     value={movie?.description}
                 />
-                <FormFieldComponent
-                    form={form}
+                <FormField
+                    control={form.control}
                     name="rating"
-                    title="Rating"
-                    type="number"
-                    value={movie?.rating}
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Select Rating</FormLabel>
+                            <Select
+                                onValueChange={field.onChange}
+                                value={field.value}
+                            >
+                                <FormControl>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Choose Rating" />
+                                    </SelectTrigger>
+                                </FormControl>
+                                <SelectContent {...form}>
+                                    <SelectItem value={EnumRating.BRONZE}>
+                                        {EnumRating.BRONZE}
+                                    </SelectItem>
+                                    <SelectItem value={EnumRating.SILVER}>
+                                        {EnumRating.SILVER}
+                                    </SelectItem>
+                                    <SelectItem value={EnumRating.GOLD}>
+                                        {EnumRating.GOLD}
+                                    </SelectItem>
+                                    <SelectItem value={EnumRating.PLATINUM}>
+                                        {EnumRating.PLATINUM}
+                                    </SelectItem>
+                                    <SelectItem value={EnumRating.DIAMOND}>
+                                        {EnumRating.DIAMOND}
+                                    </SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </FormItem>
+                    )}
                 />
                 <FormFieldComponent
                     form={form}
