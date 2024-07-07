@@ -5,7 +5,6 @@ import { useCategories } from '@/hooks/useCategories';
 import { useGenres } from '@/hooks/useGenres';
 import { adminCards } from '@/lib/admin-cards';
 import { IAdminCard } from '@/types/admin.type';
-import { useEffect, useState } from 'react';
 import { SlOptionsVertical } from 'react-icons/sl';
 
 export function AdminStatisticCards() {

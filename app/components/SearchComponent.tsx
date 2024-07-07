@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { IoSearch } from 'react-icons/io5';
 
-export function AdminSearch() {
+export function SearchComponent() {
     const searchParams = useSearchParams();
     const pathName = usePathname();
     const { replace } = useRouter();

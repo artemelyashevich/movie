@@ -16,11 +16,10 @@ export async function PaginationControls() {
 
     const goToPage = async (page: number) => {
         router.push(`${pathName}?page=${page}&size=${size}`);
-        // setTimeout(() => location.reload(), 100);
     };
 
     return (
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center mt-3">
             <Button
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage + 1 === 1}

@@ -55,7 +55,7 @@ export default function AdminHome() {
                     <Button variant={'blue'}>Add movie</Button>
                 </Link>
             </div>
-            <div className="my-4 flex flex-col justify-center text-center">
+            <div className="my-4 flex flex-col justify-center text-center gap-5">
                 <AdminMoviesRender data={data} isLoading={isLoading} />
                 <Link className="my-4" href={'/admin/movies'}>
                     <Button variant={'blue'}>Load more</Button>

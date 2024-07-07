@@ -8,7 +8,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div>
+        <div className="bg-white">
             <AdminLeftBar />
             <div className="p-4 sm:ml-64">
                 <AdminHeader />

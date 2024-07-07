@@ -1,8 +1,8 @@
 'use client';
 
 import { AdminMoviesRender } from '@/app/components/admin/AdminMoviesRender';
-import { AdminSearch } from '@/app/components/admin/AdminSearch';
 import { PaginationControls } from '@/app/components/PaginationControls';
+import { SearchComponent } from '@/app/components/SearchComponent';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useMovies } from '@/hooks/useMovies';
@@ -36,7 +36,7 @@ export default function AdminMovies() {
                 </Link>
             </div>
             <Separator className="w-1/4 h-1 mb-4" />
-            <AdminSearch />
+            <SearchComponent />
 
             <div className="my-4 flex flex-col justify-center text-center gap-3">
                 <AdminMoviesRender data={movies} isLoading={isLoading} />
