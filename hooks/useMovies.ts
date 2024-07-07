@@ -3,12 +3,21 @@
 import { MovieService } from '@/service/movie.service';
 import { useQuery } from '@tanstack/react-query';
 
-export function useMovies({ page, size }: { page?: number; size?: number }) {
+export function useMovies({
+    page,
+    size,
+    query
+}: {
+    page?: number;
+    size?: number;
+    query?: string;
+}) {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['getMovies'],
+        queryKey: ['getMovies', query, page],
         queryFn: () =>
-            page || size
-                ? MovieService.getAllPaginated(page, size)
+            query
+                ? MovieService.getAllMovies('', '', '', (query = query))
+                : (page || size) ? MovieService.getAllPaginated(page, size)
                 : MovieService.getAllMovies(),
         retry: false
     });

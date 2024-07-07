@@ -16,7 +16,7 @@ import { AdminMoviesRender } from '@/app/components/admin/AdminMoviesRender';
 import { useMovies } from '@/hooks/useMovies';
 
 export default function AdminHome() {
-    const { data, isLoading } = useMovies({});
+    const { data, isLoading } = useMovies({page: 0, size: 3});
 
     return (
         <div>

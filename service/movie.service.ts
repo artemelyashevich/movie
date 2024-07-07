@@ -7,10 +7,13 @@ export class MovieService {
     public static async getAllMovies(
         categoryName: string = '',
         genreName: string = '',
-        statusName: string = ''
+        statusName: string = '',
+        query: string = ''
     ) {
+        console.log(query);
+
         const response = await axiosDefault.get(
-            `${this.URL}?categoryName=${categoryName}&genreName=${genreName}&statusName=${statusName}`
+            `${this.URL}?query=${query}&categoryName=${categoryName}&genreName=${genreName}&statusName=${statusName}`
         );
         return response.data;
     }

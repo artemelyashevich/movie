@@ -16,7 +16,7 @@ export async function PaginationControls() {
 
     const goToPage = async (page: number) => {
         router.push(`${pathName}?page=${page}&size=${size}`);
-        setTimeout(() => location.reload(), 100);
+        // setTimeout(() => location.reload(), 100);
     };
 
     return (
